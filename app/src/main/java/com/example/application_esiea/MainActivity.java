@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Je rajoute du code
+        showList();
+        
 
 
 
@@ -40,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void showList() {
+        // Afficher la liste
     }
 
     @Override
