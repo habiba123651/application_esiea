@@ -1,6 +1,7 @@
 package com.example.application_esiea;
 
 import android.app.Notification;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class FirstFragment extends Fragment {
     private Notification.MessagingStyle.Message showCountTextView;
-}
 
 
     @Override
@@ -24,20 +26,27 @@ public class FirstFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
 
+            return void ;
 
-    ){
+
+    ) {
 
         ;
+
+
+
     }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         view.findViewById(R.id.random_button).setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
                 int currentCount = Integer.parseInt(showCountTextView.getText().toString());
-                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
-                NavHostFragment.findNavController(FirstFragment.this).navigate(action);
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = (FirstFragmentDirections.ActionFirstFragmentToSecondFragment) FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
+                NavHostFragment.findNavController(FirstFragment.this).navigate((NavDirections) action);
             }
         });
 
@@ -58,4 +67,8 @@ public class FirstFragment extends Fragment {
     }
 
     private void countMe(View view) {
+        //
     }
+
+};
+
