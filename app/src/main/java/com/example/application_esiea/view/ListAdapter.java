@@ -1,4 +1,4 @@
-package com.example.application_esiea;
+package com.example.application_esiea.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,10 +7,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.application_esiea.R;
+import com.example.application_esiea.model.Pokemon;
+
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<Pokemon> values;
+    private List< Pokemon > values;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and

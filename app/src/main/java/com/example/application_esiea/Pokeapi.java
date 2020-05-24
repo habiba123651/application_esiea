@@ -2,16 +2,15 @@ package com.example.application_esiea;
 
 import android.telecom.Call;
 
+import com.example.application_esiea.model.RestPokemonResponse;
+
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+
 
 
 public interface Pokeapi {
     @GET("/api/v2/pokemon")
-    Call<RestPokemonResponse> GETPokemonResponse();
+    Call<RestPokemonResponse > getPokemonResponse();
 
-    @GET("/api/v2/ability")
-    Call<RestPokemonResponse> GETAbility();
 
-    retrofit2.Call<RestPokemonResponse> getPokemonResponse();
 }

@@ -1,31 +1,26 @@
-package com.example.application_esiea;
+package com.example.application_esiea.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-;import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+;
+import com.example.application_esiea.Constants;
+import com.example.application_esiea.Pokeapi;
+import com.example.application_esiea.R;
+import com.example.application_esiea.model.Pokemon;
+import com.example.application_esiea.model.RestPokemonResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -42,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences SharedPreferences;
     private Gson gson;
+    private Object ListType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 .setLenient()
                 .create();
 
-        List<Pokemon> pokemonList = getDataFromCache();
+        List< Pokemon > pokemonList = getDataFromCache();
         if (pokemonList != null) {
             showList(pokemonList);
         } else {
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         } else {
             Type listType = new TypeToken<List<Pokemon>>() {}.getType();
-            return gson.fromJson(jsonPokemon, ListType);
+            return gson.fromJson(jsonPokemon, (Class<List<Pokemon>>) ListType);
         }
 
 }
@@ -97,13 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
         Pokeapi PokeApi = retrofit.create(Pokeapi.class);
 
-        Call<RestPokemonResponse> call = PokeApi.getPokemonResponse();
+        android.telecom.Call<RestPokemonResponse> call = PokeApi.getPokemonResponse();
         call.enqueue(new Callback<RestPokemonResponse>() {
             @Override
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
 
                     if (response.isSuccessful() && response.body() != null)  {
-                        List<Pokemon> PokemonList = response.body().getResult();
+                        List<Pokemon> PokemonList = response.body().getResults();
                         saveList(PokemonList);
                        showList(PokemonList);
                     } else {

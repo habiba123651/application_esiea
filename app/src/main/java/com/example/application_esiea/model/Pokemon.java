@@ -1,4 +1,4 @@
-package com.example.application_esiea;
+package com.example.application_esiea.model;
 
 public class Pokemon {
     private String name;

@@ -1,11 +1,13 @@
-package com.example.application_esiea;
+package com.example.application_esiea.model;
+
+import com.example.application_esiea.model.Pokemon;
 
 import java.util.List;
 
 public class RestPokemonResponse {
     private Integer count;
     private String next;
-    private List<Pokemon> result;
+    private List< Pokemon > results;
 
 
     public Integer getCount() {
@@ -16,8 +18,8 @@ public class RestPokemonResponse {
         return next;
     }
 
-    public List<Pokemon> getResult() {
-        return result;
+    public List<Pokemon> getResults() {
+        return results;
     }
 }
 
