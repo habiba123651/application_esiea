@@ -19,6 +19,7 @@ set DEFAULT_JVM_OPTS=
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
 
+
 set JAVA_EXE=java.exe
 %JAVA_EXE% -version >NUL 2>&1
 if "%ERRORLEVEL%" == "0" goto init
@@ -77,6 +78,7 @@ rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instea
 rem the _cmd.exe /c_ return code!
 if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
 exit /b 1
+
 
 :mainEnd
 if "%OS%"=="Windows_NT" endlocal
