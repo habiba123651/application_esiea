@@ -12,5 +12,4 @@ public interface Pokeapi {
     @GET("/api/v2/pokemon")
     Call<RestPokemonResponse > getPokemonResponse();
 
-
 }
