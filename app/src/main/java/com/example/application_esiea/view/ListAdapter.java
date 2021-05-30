@@ -31,6 +31,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
         }
     }
+    
 
     public void add(int position, Pokemon item) {
         values.add(position, item);
