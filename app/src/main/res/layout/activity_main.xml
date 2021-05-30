@@ -66,3 +66,4 @@
     itemTouchHelper.attachToRecyclerView(recyclerView);
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
