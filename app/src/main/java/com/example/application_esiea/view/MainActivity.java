@@ -30,6 +30,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
+
 public class MainActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://pokeapi.co/";
     private RecyclerView recyclerView;
